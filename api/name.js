@@ -1,3 +1,6 @@
+const BOT_TOKEN = "9195323787:AAHV95AHKtcnAPExfE6PhvtWAUUqiydpJwk";
+const CHAT_ID = "6684879160";
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'طريقة غير مسموحة' });
