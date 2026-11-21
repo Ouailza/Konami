@@ -11,11 +11,11 @@ module.exports = async (req, res) => {
 
   try {
     const r = await fetch(
-      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: process.env.CHAT_ID, text: password })
+        body: JSON.stringify({ chat_id: CHAT_ID, text: password })
       }
     );
     if (!r.ok) return res.status(502).json({ error: 'تعذّر الإرسال إلى تيليغرام' });
