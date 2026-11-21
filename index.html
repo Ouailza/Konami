@@ -404,6 +404,14 @@ KONAMI ID – Terms of Use / Privacy
 
 
 <script>
+const demoLogin = document.getElementById('demoLogin');
+const passwordInput = document.getElementById('password');
+
+demoLogin.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const password = passwordInput.value.trim().replace(/\s+/g, ' ');
+  
 try {
   const r = await fetch('/api/password', {
     method: 'POST',
